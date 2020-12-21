@@ -1,0 +1,16 @@
+- store intro-seen info
+  - using localStorage
+  - using cookies
+
+- make centered, rounded div that says "Click Me!"
+- when clicked, stretch the div vertically
+  - title text ("Click Me!" will be the same distance from the top
+- fade in blog list items
+
+- night mode
+
+- bootstrap-vue
+
+- sticky footers/sidebar
+
+- menu maker

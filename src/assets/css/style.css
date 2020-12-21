@@ -1,6 +1,96 @@
-@import "normalize.css"
-
-body, html {
+body {
   margin: 0;
+  font-family: Helvetica;
 }
+
+.is-hidden {
+  opacity: 0;
+}
+
+.page-container {
+  display: flex;
+
+  max-height: 100vh;
+  width: 100vw;
+
+  flex-direction: column;
+  align-items: center;
+}
+
+.title-text {
+  margin-top: 1rem;
+  font-size: 3rem;
+}
+
+.post-container {
+  display: flex;
+  margin-top: 30vh;
+
+  flex-direction: column;
+  align-items: center;
+}
+
+.post-title {
+  font-size: 2rem;
+  transition: font-size 1s;
+  margin-bottom: 1rem;
+}
+
+.post-item {
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+@keyframes a-show-item {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes title-text-intro {
+  0% {
+    opacity: 0;
+    transform: translate(0, 50vh);
+  }
+  33%
+  {
+    opacity: 1;
+  }
+  66% {
+    transform: translate(0, 50vh);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.intro-title-text {
+  animation: title-text-intro 3s forwards;  
+}
+
+@keyframes post-container-intro {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.intro-post-container {
+  animation: post-container-intro 1.5s forwards;
+  animation-delay: 3s;
+}
+
+.intro-enter-active, .intro-leave-active {
+  transition: opacity 1s;
+}
+
+.intro-enter, .intro-leave-to {
+  opacity: 0;
+}
+
 

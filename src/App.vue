@@ -1,76 +1,69 @@
 <template>
   <div class="page-container">
 
-    <div @click="toggleLargeText" class="title-text" ref="titleText">
-      Hello World!
+    <div class="title-text" :class="styles.titleTextStyle" ref="titleText">
+      Vue Blog
     </div>
+
+    <router-view :key="$route.path">
+    </router-view>
 
   </div>
 </template>
 
 <script>
 
+// import BlogPost from './components/BlogPost.vue'
+
 export default {
   name: 'App',
   components: {
+    // BlogPost
   },
   data: function () {
     return {
-      clicked: false
+      showIntro: false,
+      showPosts: true,
+      styles: {
+        titleTextStyle: [
+          {'intro-title-text': this.showIntro}
+        ],
+        postContainerStyle: [
+          {
+            'is-hidden': this.showIntro,
+            'intro-post-container': this.showIntro
+          }
+        ],
+      },
+      blogPosts: [
+        {
+          id: 0,
+          title: "Hello World!",
+          body: 'Hello, my name is Nic.'
+        },
+        {
+          id: 1,
+          title: "About Me",
+          body: 'I like writing blogs.'
+        },
+        {
+          id: 2,
+          title: "My Big Plan",
+          body: 'We should be friends and make blog posts together.'
+        }
+      ]
     }
   },
+  mounted() {
+    this.$nextTick(() => {
+      if (this.showIntro) {
+        this.$refs.titleText.classList.add('intro-title-text');
+        this.$refs.postContainer.classList.add('is-hidden', 'intro-post-container');
+      }
+    })
+  },
   methods: {
-    showIntroAnimation: function () {
-      if (!localStorage.getItem('intro-seen')) {
-        this.$refs.titleText.classList.add('show-intro');
-        // localStorage.setItem('intro-seen', true);
-        localStorage.removeItem('intro-seen')
-      }
-    },
-    toggleLargeText: function () {
-      let titleText = this.$refs.titleText;
-      if (!titleText.classList.contains('text-move-up')) {
-        titleText.classList.add('text-move-up');
-      } else {
-        titleText.classList.remove('text-move-up');
-      }
-    }
   }
 }
 </script>
 
-<style>
-
-body {
-  margin: 0;
-  font-family: Helvetica;
-}
-
-.page-container {
-  display: flex;
-
-  height: 100vh;
-  width: 100vw;
-
-  justify-content: center;
-  align-items: center;
-}
-
-.title-text-centered {
-  margin-bottom: 45vh;
-}
-
-.title-text {
-  font-size: 1rem;
-  transition: margin-bottom 1s;
-}
-
-.text-move-up-more {
-  transform: translate(0, -200px);
-}
-
-.text-move {
-}
-
-
-</style>

@@ -1,10 +1,19 @@
+- put vuex into the mix
+  - move blogPosts into vuex store
+- home vue used for title + post-container
+
+- move everything to vue-router
+- on page transition
+  - slide and shrink 'Blog Posts' text
+  - fade out other text 
+  - fade in post text
+
+- rename vue-blog to vue-router-blog
+
 - store intro-seen info
   - using localStorage
   - using cookies
 
-- make centered, rounded div that says "Click Me!"
-- when clicked, stretch the div vertically
-  - title text ("Click Me!" will be the same distance from the top
 - fade in blog list items
 
 - night mode
@@ -14,3 +23,7 @@
 - sticky footers/sidebar
 
 - menu maker
+
+- noscript-ed vue page that renders using django templates
+
+- loading wheel

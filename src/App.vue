@@ -1,7 +1,7 @@
 <template>
   <div class="page-container">
 
-    <div class="title-text"><!-- :class="styles.titleTextStyle" ref="titleText"-->
+    <div class="title-text" :class="$store.getters.styles.titleTextStyle" ref="titleText">
       Vue Blog
     </div>
 
@@ -13,15 +13,8 @@
 
 <script>
 
-// import BlogPost from './components/BlogPost.vue'
-import store from './store'
-
 export default {
   name: 'App',
-  store,
-  components: {
-    // BlogPost
-  },
   data: function () {
     return {
     }

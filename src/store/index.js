@@ -3,18 +3,19 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-let showIntro = false;
+let showIntro = true;
 
 export default new Vuex.Store({
   state: {
-    showPosts: true,
-    deleteme: () => {debugger;}, // eslint-disable-line no-debugger
+    postTitle: 'Blog Posts',
     styles: {
       titleTextStyle: [
         {'intro-title-text': showIntro}
       ],
       postContainerStyle: [
         {
+          'post-container-center': true,
+          'post-container-margin-transition': true,
           'is-hidden': showIntro,
           'intro-post-container': showIntro
         }
@@ -39,11 +40,8 @@ export default new Vuex.Store({
     ]
   },
   getters: {
-    showIntro (state) {
-      return state.showIntro;
-    },
-    showPosts (state) {
-      return state.showPosts;
+    postTitle (state) {
+      return state.postTitle;
     },
     styles (state) {
       return state.styles;

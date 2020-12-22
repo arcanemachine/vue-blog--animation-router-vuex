@@ -1,5 +1,8 @@
 - put vuex into the mix
+  - get rid of extra 'store' in App.vue/main.js?
   - move blogPosts into vuex store
+
+- finish moving everything into components
 - home vue used for title + post-container
 
 - move everything to vue-router

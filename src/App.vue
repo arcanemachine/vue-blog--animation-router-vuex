@@ -1,7 +1,7 @@
 <template>
   <div class="page-container">
 
-    <div class="title-text" :class="styles.titleTextStyle" ref="titleText">
+    <div class="title-text"><!-- :class="styles.titleTextStyle" ref="titleText"-->
       Vue Blog
     </div>
 
@@ -14,49 +14,21 @@
 <script>
 
 // import BlogPost from './components/BlogPost.vue'
+import store from './store'
 
 export default {
   name: 'App',
+  store,
   components: {
     // BlogPost
   },
   data: function () {
     return {
-      showIntro: false,
-      showPosts: true,
-      styles: {
-        titleTextStyle: [
-          {'intro-title-text': this.showIntro}
-        ],
-        postContainerStyle: [
-          {
-            'is-hidden': this.showIntro,
-            'intro-post-container': this.showIntro
-          }
-        ],
-      },
-      blogPosts: [
-        {
-          id: 0,
-          title: "Hello World!",
-          body: 'Hello, my name is Nic.'
-        },
-        {
-          id: 1,
-          title: "About Me",
-          body: 'I like writing blogs.'
-        },
-        {
-          id: 2,
-          title: "My Big Plan",
-          body: 'We should be friends and make blog posts together.'
-        }
-      ]
     }
   },
   mounted() {
     this.$nextTick(() => {
-      if (this.showIntro) {
+      if (this.$store.getters.showIntro) {
         this.$refs.titleText.classList.add('intro-title-text');
         this.$refs.postContainer.classList.add('is-hidden', 'intro-post-container');
       }
